@@ -1,0 +1,32 @@
+{
+  "name": "multi-step-form-main",
+  "version": "1.0.0",
+  "description": "challenge from forntendmentor",
+  "scripts": {
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html",
+    "dev": "parcel public/index.html --open",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shub1970/Multi-step-form.git"
+  },
+  "keywords": [
+    "challenge"
+  ],
+  "author": "shubham kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shub1970/Multi-step-form/issues"
+  },
+  "homepage": "https://github.com/Shub1970/Multi-step-form#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  }
+}
