@@ -21,7 +21,7 @@ const Aside = ({ activeStep, targetStep, length, all_step_n }) => {
   return (
     <aside className="stack">
       <picture>
-        <source media="(min-width:40em )" srcset={asideImage_des} />
+        <source media="(min-width:40em )" srcSet={asideImage_des} />
         <img src={asideImage_mob} alt="aside image" />
       </picture>
       <ul role="list">{arr}</ul>

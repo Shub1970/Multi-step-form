@@ -63,6 +63,7 @@ const Multiplestepform = () => {
   };
   return (
     <>
+      <h1 className="sr-only">Multiple form</h1>
       <div className="form-wrapper">
         <Aside
           length={all_form.length}
@@ -74,23 +75,22 @@ const Multiplestepform = () => {
           <div className="form-container">
             {all_form.map((item) => {
               if (stepNo.step_no === item.step_no) {
-                return item.component;
+                return <div key={item.step_no}>{item.component}</div>;
               }
             })}
           </div>
           <div className="button-container">
             {!stepNo.isFirstStep() ? (
-              <button className="prev-button" onClick={prevStep}>
+              <button className="button prev-button" onClick={prevStep}>
                 Go Back
               </button>
             ) : null}
-            <button className="nex-button" onClick={nextStep}>
+            <button className="button nex-button" onClick={nextStep}>
               Next step
             </button>
           </div>
         </main>
       </div>
-      {console.log(stepNo)}
     </>
   );
 };

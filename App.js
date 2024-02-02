@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
 import Multiplestepform from "./src/components/Multiplestepform";
 
 import "./style.css";
@@ -19,4 +20,8 @@ export const App = () => {
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
