@@ -365,6 +365,7 @@ header > *:not(:first-child) {
   padding: var(--size-300) var(--size-500);
   border: 0px;
   border-radius: var(--size-200);
+  cursor: pointer;
 }
 .button-container {
   display: grid;
@@ -534,4 +535,46 @@ header + div > *:not(:first-child) {
 
 .toggle-button.active::after {
   margin-left: auto;
+}
+
+.check-input {
+  display: flex;
+  border: 2px solid var(--clr-primary-200);
+  border-radius: var(--size-200);
+  padding: var(--size-300);
+  gap: var(--size-300);
+}
+.check-input input {
+  width: var(--size-500);
+  aspect-ratio: 1;
+  flex-grow: 0;
+  cursor: pointer;
+}
+.check-input label {
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.check-input label {
+  display: flex;
+  align-items: center;
+  gap: var(--size-300);
+}
+
+.check-input .detail {
+  flex-grow: 4;
+}
+.check-input .cost {
+  flex-grow: 1;
+  margin-left: auto;
+}
+.form-check:has(input[type="checkbox"]:checked) {
+  background-color: var(--clr-neutral-300);
+  border: 2px solid var(--clr-primary-450);
+}
+
+.spread-layer {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--size-300) var(--size-400);
 }

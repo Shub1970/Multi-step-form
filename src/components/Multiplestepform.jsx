@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Finished from "./Finished";
+import Summary from "./Summary";
 import Plane from "./Plane";
 import AddOns from "./AddOns";
 import InitialForm from "./InitialForm";
@@ -24,7 +24,7 @@ const all_form = [
   {
     step_no: 4,
     step_name: "SUMMARY",
-    component: <Finished />,
+    component: <Summary />,
   },
 ];
 
@@ -61,6 +61,7 @@ const Multiplestepform = () => {
   const targetStepChange = (targetStep) => {
     setStepNo((prev) => ({ ...prev, step_no: targetStep }));
   };
+
   return (
     <>
       <h1 className="sr-only">Multiple form</h1>
@@ -86,7 +87,7 @@ const Multiplestepform = () => {
               </button>
             ) : null}
             <button className="button nex-button" onClick={nextStep}>
-              Next step
+              {stepNo.step_no === 4 ? "Submit" : "Next Step"}
             </button>
           </div>
         </main>

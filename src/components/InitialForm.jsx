@@ -1,6 +1,10 @@
 import React from "react";
+import { useFormData, useFormDispatch } from "../../App";
 
 const InitialForm = () => {
+  const formData = useFormData();
+  const dispatch = useFormDispatch();
+
   return (
     <>
       <header>
@@ -19,9 +23,15 @@ const InitialForm = () => {
             type="text"
             name="name"
             id="name"
+            value={formData.Name}
             placeholder="e.g. Stephen King"
             className="text-neutral-500 fw-semi-bold"
-            pattern="^[a-zA-Z]+(?:[-\s][a-zA-Z]+)*$"
+            onChange={(e) => {
+              dispatch({
+                type: "change",
+                changeProperty: { Name: e.target.value },
+              });
+            }}
           />
         </div>
         <div className="form-group">
@@ -33,9 +43,15 @@ const InitialForm = () => {
             type="email"
             name="email"
             id="email"
+            value={formData.Email}
             placeholder="e.g. stephenking@lorem.com"
             className="text-neutral-500 fw-semi-bold"
-            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            onChange={(e) => {
+              dispatch({
+                type: "change",
+                changeProperty: { Email: e.target.value },
+              });
+            }}
           />
         </div>
         <div className="form-group">
@@ -47,9 +63,14 @@ const InitialForm = () => {
             type="text"
             name="phone"
             id="phone"
-            pattern="^\+?[0-9\s-]{10,15}$"
+            value={formData.Phone}
             placeholder="e.g. +1 234 567 890 "
-            className="text-neutral-500 fw-semi-bold"
+            onChange={(e) => {
+              dispatch({
+                type: "change",
+                changeProperty: { Phone: e.target.value },
+              });
+            }}
           />
         </div>
       </div>
