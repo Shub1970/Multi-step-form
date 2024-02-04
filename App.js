@@ -49,7 +49,8 @@ export const App = () => {
             >
               Frontend Mentor
             </a>
-            . Coded by <a href="#">Your Name Here</a>.
+            . Coded by <a href="https://skumarportfolio.netlify.app">shubham</a>
+            .
           </div>
         </formDataEditDispatchContext.Provider>
       </formDataContext.Provider>
