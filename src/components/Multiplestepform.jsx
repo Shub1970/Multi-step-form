@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Summary from "./Summary";
 import Plane from "./Plane";
 import AddOns from "./AddOns";
 import InitialForm from "./InitialForm";
 import Aside from "./Aside";
+import Thankyou from "./Thankyou";
+import { useFormData, useFormDispatch } from "../../App";
 
 const all_form = [
   {
@@ -26,6 +28,11 @@ const all_form = [
     step_name: "SUMMARY",
     component: <Summary />,
   },
+  {
+    step_no: 5,
+    step_name: "thankyou",
+    component: <Thankyou />,
+  },
 ];
 
 const all_step_name = [];
@@ -46,7 +53,8 @@ const initial_state = {
 
 const Multiplestepform = () => {
   const [stepNo, setStepNo] = useState(initial_state);
-
+  const formData = useFormData();
+  const dispatch = useFormDispatch();
   const nextStep = () => {
     setStepNo((prev) => ({
       ...prev,
@@ -59,15 +67,34 @@ const Multiplestepform = () => {
   };
 
   const targetStepChange = (targetStep) => {
-    setStepNo((prev) => ({ ...prev, step_no: targetStep }));
+    if (stepNo.step_no <= 4) {
+      setStepNo((prev) => ({ ...prev, step_no: targetStep }));
+    }
   };
+
+  function submitFrom() {
+    console.log(formData);
+  }
+
+  function next_button_handler() {
+    dispatch({ type: "validate" });
+    const { Name, Email, Phone } = formData.errors;
+    if (Name && Email && Phone) {
+      nextStep();
+    } else {
+      if (stepNo.step_no === 4) {
+        submitFrom();
+      }
+      targetStepChange(1);
+    }
+  }
 
   return (
     <>
       <h1 className="sr-only">Multiple form</h1>
       <div className="form-wrapper">
         <Aside
-          length={all_form.length}
+          length={all_form.length - 1}
           activeStep={stepNo.step_no}
           targetStep={targetStepChange}
           all_step_n={all_step_name}
@@ -80,16 +107,21 @@ const Multiplestepform = () => {
               }
             })}
           </div>
-          <div className="button-container">
-            {!stepNo.isFirstStep() ? (
-              <button className="button prev-button" onClick={prevStep}>
-                Go Back
+          {stepNo.step_no !== 5 && (
+            <div className="button-container">
+              {!stepNo.isFirstStep() ? (
+                <button className="button prev-button" onClick={prevStep}>
+                  Go Back
+                </button>
+              ) : null}
+              <button
+                className="button nex-button"
+                onClick={next_button_handler}
+              >
+                {stepNo.step_no === 4 ? "Submit" : "Next Step"}
               </button>
-            ) : null}
-            <button className="button nex-button" onClick={nextStep}>
-              {stepNo.step_no === 4 ? "Submit" : "Next Step"}
-            </button>
-          </div>
+            </div>
+          )}
         </main>
       </div>
     </>

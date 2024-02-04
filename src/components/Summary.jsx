@@ -28,7 +28,7 @@ const Summary = () => {
             >
               {formData.Plane.name}({formData.Plane.type})
             </p>
-            <p className="fs-400 text-neutral-400 fw-semi-bold">change</p>
+            {/* <p className="fs-400 text-neutral-400 fw-semi-bold">change</p> */}
           </div>
           <p className="fs-400 text-primary-450 cost">{`${
             formData.Plane.currency

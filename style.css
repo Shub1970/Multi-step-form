@@ -577,4 +577,13 @@ header + div > *:not(:first-child) {
   display: flex;
   justify-content: space-between;
   padding: var(--size-300) var(--size-400);
+  border-radius: var(--size-300) var(--size-300) 0px 0px;
+}
+
+.thankyou {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  display: grid;
+  justify-items: center;
 }

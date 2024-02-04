@@ -7,6 +7,18 @@ import "./style.css";
 const formDataContext = createContext(null);
 const formDataEditDispatchContext = createContext(null);
 
+const validateName = (name) => {
+  return name.length > 0;
+};
+
+const validateEmail = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
+const validatePhone = (phone) => {
+  return /^\d{10}$/.test(phone);
+};
+
 const initialFormData = {
   Name: "",
   Email: "",
@@ -19,6 +31,7 @@ const initialFormData = {
     currency: "$",
   },
   Add_service: [],
+  errors: {},
 };
 
 export const App = () => {
@@ -81,6 +94,14 @@ function formReducer(formData, action) {
         ...formData,
         Add_service: newService,
       };
+    }
+    case "validate": {
+      const errors = {
+        Name: validateName(formData.Name),
+        Email: validateEmail(formData.Email),
+        Phone: validatePhone(formData.Phone),
+      };
+      return { ...formData, errors };
     }
     case "clear_service": {
       return {
