@@ -32,6 +32,7 @@ const initialFormData = {
   },
   Add_service: [],
   errors: {},
+  show_error: false,
 };
 
 export const App = () => {
@@ -108,6 +109,12 @@ function formReducer(formData, action) {
       return {
         ...formData,
         Add_service: [],
+      };
+    }
+    case "show_error": {
+      return {
+        ...formData,
+        show_error: true,
       };
     }
     default:

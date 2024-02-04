@@ -78,6 +78,7 @@ const Multiplestepform = () => {
 
   function next_button_handler() {
     dispatch({ type: "validate" });
+    dispatch({ type: "show_error" });
     const { Name, Email, Phone } = formData.errors;
     if (Name && Email && Phone) {
       nextStep();

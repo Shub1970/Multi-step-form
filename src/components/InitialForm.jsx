@@ -22,15 +22,17 @@ const InitialForm = () => {
           >
             Name
           </label>
-          <span
-            className={
-              formData.errors.Name
-                ? "error-message fs-600"
-                : "error-message fs-600 active"
-            }
-          >
-            follow pattern
-          </span>
+          {formData.show_error && (
+            <span
+              className={
+                formData.errors.Name
+                  ? "error-message fs-600"
+                  : "error-message fs-600 active"
+              }
+            >
+              follow pattern
+            </span>
+          )}
           <input
             type="text"
             name="name"
@@ -45,6 +47,7 @@ const InitialForm = () => {
                 changeProperty: { Name: e.target.value },
               });
               dispatch({ type: "validate" });
+              dispatch({ type: "show_error" });
             }}
           />
         </div>
@@ -52,15 +55,17 @@ const InitialForm = () => {
           <label htmlFor="email" className="text-primary-500 fw-semi-bold">
             Email Address
           </label>
-          <span
-            className={
-              formData.errors.Email
-                ? "error-message fs-600"
-                : "error-message fs-600 active"
-            }
-          >
-            enter the correct email
-          </span>
+          {formData.show_error && (
+            <span
+              className={
+                formData.errors.Email
+                  ? "error-message fs-600"
+                  : "error-message fs-600 active"
+              }
+            >
+              enter the correct email
+            </span>
+          )}
           <input
             type="email"
             name="email"
@@ -74,6 +79,7 @@ const InitialForm = () => {
                 type: "change",
                 changeProperty: { Email: e.target.value },
               });
+              dispatch({ type: "show_error" });
               dispatch({ type: "validate" });
             }}
           />
@@ -82,15 +88,17 @@ const InitialForm = () => {
           <label htmlFor="phone" className="text-primary-500 fw-semi-bold">
             Phone Number
           </label>
-          <span
-            className={
-              formData.errors.Phone
-                ? "error-message fs-600"
-                : "error-message fs-600 active"
-            }
-          >
-            enter correct phone number
-          </span>
+          {formData.show_error && (
+            <span
+              className={
+                formData.errors.Phone
+                  ? "error-message fs-600"
+                  : "error-message fs-600 active"
+              }
+            >
+              enter correct phone number
+            </span>
+          )}
           <input
             type="text"
             name="phone"
@@ -103,6 +111,7 @@ const InitialForm = () => {
                 type: "change",
                 changeProperty: { Phone: e.target.value },
               });
+              dispatch({ type: "show_error" });
               dispatch({ type: "validate" });
             }}
           />
