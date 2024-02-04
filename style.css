@@ -381,6 +381,13 @@ main {
   padding: var(--size-700) var(--size-900);
 }
 
+@media (width<=800px) {
+  main {
+    padding: var(--size-500) var(--size-400);
+    width: 470px;
+  }
+}
+
 @media (max-width: 40em) {
   main {
     width: 100%;
