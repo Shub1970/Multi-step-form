@@ -10,18 +10,23 @@ const InitialForm = () => {
     <>
       <header>
         <h2 className="text-accent-400 fw-bold fs-750">Personal info</h2>
-        <p className="text-neutral-350 fw-regular">
+        <p className="text-neutral-350 fw-regular fs-600">
           Please provide your name, email, address, and phone number.
         </p>
       </header>
       <div>
         <div className="form-group">
-          <label htmlFor="name" className="text-primary-500 fw-semi-bold">
+          <label
+            htmlFor="name"
+            className="text-primary-500 fw-semi-bold fs-600"
+          >
             Name
           </label>
           <span
             className={
-              formData.errors.Name ? "error-message" : "error-message active"
+              formData.errors.Name
+                ? "error-message fs-600"
+                : "error-message fs-600 active"
             }
           >
             follow pattern
@@ -49,7 +54,9 @@ const InitialForm = () => {
           </label>
           <span
             className={
-              formData.errors.Email ? "error-message" : "error-message active"
+              formData.errors.Email
+                ? "error-message fs-600"
+                : "error-message fs-600 active"
             }
           >
             enter the correct email
@@ -77,7 +84,9 @@ const InitialForm = () => {
           </label>
           <span
             className={
-              formData.errors.Phone ? "error-message" : "error-message active"
+              formData.errors.Phone
+                ? "error-message fs-600"
+                : "error-message fs-600 active"
             }
           >
             enter correct phone number

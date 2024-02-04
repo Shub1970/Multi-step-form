@@ -81,10 +81,10 @@ const Multiplestepform = () => {
     const { Name, Email, Phone } = formData.errors;
     if (Name && Email && Phone) {
       nextStep();
-    } else {
       if (stepNo.step_no === 4) {
         submitFrom();
       }
+    } else {
       targetStepChange(1);
     }
   }
